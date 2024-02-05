@@ -1,0 +1,6 @@
+[APP]
+
+LOG_LEVEL = "INFO"
+
+[MY_CLASS]
+VALUE = 42
