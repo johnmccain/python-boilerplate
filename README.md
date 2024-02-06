@@ -59,6 +59,10 @@ This project installs your python application as a package, which allows absolut
 
 The directory structure of the package is up to you, but there are two submodules included at present. `config` contains .toml configuration files + the dynaconf configuration. `models` contains Pydantic data models.
 
+### Organizing Code in Multiple Packages
+
+This project has two packages specified, the `python_boilerplate` package and the `server` package. `python_boilerplate` contains the main implementation & logic, while `server` contains FastAPI server specific code. Breaking apart these implementations allows us to use the implementations of the main package in a variety of ways without worrying about server logic which may be irrelevant (for example, another package running as a queue consumer or running as lambda functions). Crucially, the main package should never import from the auxiliary package--the pattern of imports should only go in one direction.
+
 ### Configuration
 
 Configuration in this project is implemented with [Dynaconf](https://www.dynaconf.com/), a modern configuration library for Python. This project uses .toml files as configuration to follow modern Python conventions and for the typed nature of the configuration (saving you from needing to manually parse or type cast).
