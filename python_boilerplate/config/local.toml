@@ -1,0 +1,4 @@
+[APP]
+
+HOST = "localhost"
+PORT = 8080

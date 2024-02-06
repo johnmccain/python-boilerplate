@@ -11,4 +11,8 @@ class AppConfig(BaseModel):
     testing & maintains inversion of control.
     """
 
+    app_log_level: str = config["app.log_level"]
+    app_host: str = config["app.host"]
+    app_port: int = config["app.port"]
+
     my_class_value: int = config["my_class.value"]

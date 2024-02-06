@@ -1,6 +1,9 @@
 [APP]
 
 LOG_LEVEL = "INFO"
+HOST = "localhost"
+PORT = 8080
 
 [MY_CLASS]
+
 VALUE = 42
