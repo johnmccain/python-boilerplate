@@ -13,4 +13,4 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.test
-    command: ["./scripts/run_unit_tests.sh"]
+    command: ["./scripts/run_all_tests.sh"]
