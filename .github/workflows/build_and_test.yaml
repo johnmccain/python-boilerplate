@@ -1,0 +1,29 @@
+name: Docker Compose Tests
+
+on: [push]
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      docker:
+        image: docker/compose:1.29.2
+        env:
+          DOCKER_COMPOSE_VERSION: 1.29.2
+        ports:
+          - 8080:8080
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build and run Docker Compose
+        run: |
+          docker-compose up --build test
+
+      - name: Clean up
+        run: |
+          docker-compose down -v
+          docker-compose rm -f

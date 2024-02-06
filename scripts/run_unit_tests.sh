@@ -1,2 +1,2 @@
 #!/bin/bash
-exec pytest --cov=python_boilerplate tests
+exec poetry run pytest --cov=python_boilerplate tests

@@ -15,10 +15,11 @@ COPY server ./server
 COPY scripts ./scripts
 COPY python_boilerplate ./python_boilerplate
 COPY tests ./tests
-RUN chmod +x ./scripts/entrypoint.sh ./scripts/run_unit_tests.sh
+RUN chmod +x ./scripts/entrypoint.sh ./scripts/run_unit_tests.sh ./scripts/run_all_tests.sh ./scripts/run_mypy.sh
 
 RUN poetry install --no-interaction --no-ansi
 
 EXPOSE 8080
 
-CMD ["./scripts/run_unit_tests.sh"]
+# By default run unit tests, can be overriden for other test types
+CMD ["./scripts/run_all_tests.sh"]
