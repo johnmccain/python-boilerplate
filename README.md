@@ -51,6 +51,7 @@ The only hard dependencies for this project are `poetry`, `dynaconf`, and `pydan
 - Dockerfile.test
     - Dockerfile for testing in CI/CD pipelines
 - docker-compose.yaml
+    - Docker Compose configuration
 
 ## Package Structure
 
@@ -130,3 +131,23 @@ def my_func(value: int | None):
     # But if MyPy didn't for some reason (can happen with some complicated design patterns or with specific business logic), you can assert like so. Adding the reason in a comment is good practice.
     assert isinstance(value, int)  # For MyPy
 ```
+
+
+## Dockerfiles
+
+There are Dockerfiles for both deployment and for running tests.
+The deployment container does not include dev dependencies.
+
+Build the deployment container and run it like so:
+```bash
+docker compose build app
+docker compose run app
+```
+
+Build the test container and run it like so:
+```bash
+docker compose build test
+docker compose run test
+```
+
+The executed command for the test container by default runs pytest with coverage reporting. You can override this to run other types of tests & test scripts without building a whole new container.
