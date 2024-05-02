@@ -11,8 +11,9 @@ env = os.environ.get("ENV", "local")
 config = Dynaconf(
     envvar_prefix="DYNACONF",  # `envvar_prefix` = export envvars with `export DYNACONF_FOO=bar`.
     settings_files=[
-        current_dir / f"{env}.toml",
         current_dir / "default.toml",
+        current_dir / f"{env}.toml",
         current_dir / ".secrets.toml",
     ],
+    merge_enabled=True,
 )
